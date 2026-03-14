@@ -36,7 +36,7 @@ const HeroSection = () => {
                   Get Your Website Now <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-lg px-8 h-13 text-base border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
+              <Button size="lg" className="rounded-lg px-8 h-13 text-base border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
                 <a href="#contact">Free Consultation</a>
               </Button>
             </div>

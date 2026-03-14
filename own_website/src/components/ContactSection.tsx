@@ -74,19 +74,19 @@ const ContactSection = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="c-name" className="text-sm font-medium mb-1.5 block">Name</label>
-                <Input id="c-name" placeholder="John Doe" value={form.name} onChange={(e) => update("name", e.target.value)} className={errors.name ? "border-destructive" : ""} />
+                <Input id="c-name" placeholder="your name" value={form.name} onChange={(e) => update("name", e.target.value)} className={errors.name ? "border-destructive" : ""} />
                 {errors.name && <p className="text-xs text-destructive mt-1" role="alert">{errors.name}</p>}
               </div>
               <div>
                 <label htmlFor="c-email" className="text-sm font-medium mb-1.5 block">Email</label>
-                <Input id="c-email" type="email" placeholder="john@example.com" value={form.email} onChange={(e) => update("email", e.target.value)} className={errors.email ? "border-destructive" : ""} />
+                <Input id="c-email" type="email" placeholder="email" value={form.email} onChange={(e) => update("email", e.target.value)} className={errors.email ? "border-destructive" : ""} />
                 {errors.email && <p className="text-xs text-destructive mt-1" role="alert">{errors.email}</p>}
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="c-phone" className="text-sm font-medium mb-1.5 block">Phone</label>
-                <Input id="c-phone" placeholder="+1 (555) 000-0000" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={errors.phone ? "border-destructive" : ""} />
+                <Input id="c-phone" placeholder="Mobile/whatsapp" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={errors.phone ? "border-destructive" : ""} />
                 {errors.phone && <p className="text-xs text-destructive mt-1" role="alert">{errors.phone}</p>}
               </div>
               <div>
@@ -129,9 +129,9 @@ const ContactSection = () => {
 
               <div className="space-y-5 mb-8">
                 {[
-                  { icon: MapPin, label: "123 Tech Avenue, Digital City, DC 10001" },
-                  { icon: Phone, label: "+1 (555) WEBCRAFT" },
-                  { icon: Mail, label: "hello@webcraft-agency.com" },
+                  { icon: MapPin, label: "Kochi, Keralam, India" },
+                  { icon: Phone, label: "+919074056849" },
+                  { icon: Mail, label: "webcraft@gmail.com" },
                 ].map((info) => (
                   <div key={info.label} className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-secondary-foreground/10 flex items-center justify-center">
@@ -144,12 +144,12 @@ const ContactSection = () => {
             </div>
 
             <div className="flex gap-3">
-              <Button asChild variant="outline" className="flex-1 rounded-lg border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
+              <Button asChild className="flex-1 rounded-lg border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
                 <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
                 </a>
               </Button>
-              <Button asChild variant="outline" className="flex-1 rounded-lg border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
+              <Button asChild className="flex-1 rounded-lg border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
                 <a href="mailto:hello@webcraft-agency.com">
                   <Mail className="mr-2 h-4 w-4" /> Email
                 </a>

@@ -5,13 +5,13 @@ const testimonials = [
   {
     name: "Sarah Mitchell",
     role: "Owner, Mitchell's Boutique",
-    quote: "WebCraft built an amazing e-commerce website for my boutique. Sales went up 40% in the first month! The team was professional and delivered ahead of schedule.",
+    quote: "WebNivo built an amazing e-commerce website for my boutique. Sales went up 40% in the first month! The team was professional and delivered ahead of schedule.",
     rating: 5,
   },
   {
     name: "Dr. James Chen",
     role: "Director, CityHealth Clinic",
-    quote: "Our clinic needed a modern website with appointment booking. WebCraft delivered exactly what we needed — patients love the new online booking feature.",
+    quote: "Our clinic needed a modern website with appointment booking. WebNivo delivered exactly what we needed — patients love the new online booking feature.",
     rating: 5,
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
   {
     name: "James Rodriguez",
     role: "CTO, TechStart Inc",
-    quote: "Working with WebCraft was seamless. They delivered a sleek corporate site that perfectly represents our brand. Outstanding quality and support!",
+    quote: "Working with WebNivo was seamless. They delivered a sleek corporate site that perfectly represents our brand. Outstanding quality and support!",
     rating: 5,
   },
 ];

@@ -1,13 +1,43 @@
 import { motion } from "framer-motion";
-import { Globe, ShoppingCart, GraduationCap, HeartPulse, RefreshCw, Wrench } from "lucide-react";
+import { Globe, Code2, Palette, Smartphone, Wrench, Gauge } from "lucide-react";
 
 const services = [
-  { icon: Globe, title: "Business Website Development", description: "Custom-built professional websites that establish your brand online and drive growth." },
-  { icon: ShoppingCart, title: "E-commerce Website Development", description: "Feature-rich online stores with secure payments, inventory, and seamless shopping." },
-  { icon: GraduationCap, title: "School & College Websites", description: "Educational platforms with student portals, course listings, and admissions." },
-  { icon: HeartPulse, title: "Hospital & Clinic Websites", description: "Healthcare websites with appointment booking, doctor profiles, and patient navigation." },
-  { icon: RefreshCw, title: "Website Redesign", description: "Transform your outdated website into a modern, high-performing digital experience." },
-  { icon: Wrench, title: "Website Maintenance", description: "Ongoing support, security updates, performance monitoring, and content updates." },
+  {
+    icon: Globe,
+    title: "Website Development",
+    description:
+      "We design and develop modern, high-quality websites tailored to your business needs."
+  },
+  {
+    icon: Code2,
+    title: "Web Application Development",
+    description:
+      "We build powerful web applications using modern frameworks and scalable technologies."
+  },
+  {
+    icon: Palette,
+    title: "UI / UX Design",
+    description:
+      "We create clean, intuitive, and engaging user interfaces that enhance the overall user experience."
+  },
+  {
+    icon: Smartphone,
+    title: "Responsive Web Design",
+    description:
+      "Every website we build is fully responsive and optimized for all devices."
+  },
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    description:
+      "We provide ongoing website maintenance to keep your website secure, updated, and running smoothly."
+  },
+  {
+    icon: Gauge,
+    title: "Website Performance Optimization",
+    description:
+      "We optimize your website for speed and performance to ensure faster loading times and better user experience."
+  },
 ];
 
 const ServicesSection = () => {

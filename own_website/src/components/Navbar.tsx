@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <a href="#" className="text-xl font-extrabold tracking-tight text-primary-foreground" aria-label="WebCraft home">
-          <span className="text-primary">Web</span>Craft
+          <span className="text-primary">Web</span>Nivo
         </a>
 
         <div className="hidden md:flex items-center gap-1">
