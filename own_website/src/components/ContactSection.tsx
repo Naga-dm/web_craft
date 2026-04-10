@@ -41,6 +41,11 @@ const ContactSection = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const ADMIN_TEMPLATE_ID = import.meta.env.VITE_ADMIN_TEMPLATE_ID;
+  const AUTO_REPLY_TEMPLATE_ID = import.meta.env.VITE_AUTO_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -69,9 +74,9 @@ const ContactSection = () => {
         message: form.message,
       };
 
-      await emailjs.send("service_fuxufeo", "template_lp9dcn9", templateParams, "qzZvEKA-AHINHZbeI");
+      await emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
-      await emailjs.send("service_fuxufeo", "template_g6vz3tm", templateParams, "qzZvEKA-AHINHZbeI");
+      await emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
       toast({
         title: "Message sent!",
