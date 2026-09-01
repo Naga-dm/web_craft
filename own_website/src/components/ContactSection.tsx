@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import emailjs from "emailjs-com";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -22,9 +23,36 @@ const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", businessType: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const result = contactSchema.safeParse(form);
+  //   if (!result.success) {
+  //     const fieldErrors: Record<string, string> = {};
+  //     result.error.errors.forEach((err) => {
+  //       if (err.path[0]) fieldErrors[err.path[0] as string] = err.message;
+  //     });
+  //     setErrors(fieldErrors);
+  //     return;
+  //   }
+  //   setErrors({});
+  //   toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+  //   setForm({ name: "", email: "", phone: "", businessType: "", message: "" });
+  // };
+
+  const [loading, setLoading] = useState(false);
+
+  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const ADMIN_TEMPLATE_ID = import.meta.env.VITE_ADMIN_TEMPLATE_ID;
+  const AUTO_REPLY_TEMPLATE_ID = import.meta.env.VITE_AUTO_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (loading) return; // prevent double click
+
     const result = contactSchema.safeParse(form);
+
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
       result.error.errors.forEach((err) => {
@@ -33,9 +61,45 @@ const ContactSection = () => {
       setErrors(fieldErrors);
       return;
     }
+
     setErrors({});
-    toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
-    setForm({ name: "", email: "", phone: "", businessType: "", message: "" });
+    setLoading(true);
+
+    try {
+      const templateParams = {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        businessType: form.businessType,
+        message: form.message,
+      };
+
+      await emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      await emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        businessType: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Try again later.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const update = (field: string, value: string) => {
@@ -108,8 +172,8 @@ const ContactSection = () => {
               <Textarea id="c-msg" placeholder="Tell us about your project..." rows={4} value={form.message} onChange={(e) => update("message", e.target.value)} className={errors.message ? "border-destructive" : ""} />
               {errors.message && <p className="text-xs text-destructive mt-1" role="alert">{errors.message}</p>}
             </div>
-            <Button type="submit" size="lg" className="w-full rounded-lg h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
-              Send Message <Send className="ml-2 h-4 w-4" />
+            <Button type="submit" disabled={loading} size="lg" className="w-full rounded-lg h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+              {loading ? "Sending..." : "Send Message"} <Send className="ml-2 h-4 w-4" />
             </Button>
           </motion.form>
 
