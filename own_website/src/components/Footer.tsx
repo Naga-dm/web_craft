@@ -16,7 +16,7 @@ const Footer = () => (
               <Phone className="h-4 w-4 text-primary" /> +919074056849
             </a>
             <a href="mailto:hello@webcraft-agency.com" className="flex items-center gap-2.5 text-sm text-secondary-foreground/60 hover:text-secondary-foreground transition-colors">
-              <Mail className="h-4 w-4 text-primary" /> hello@webcraft-agency.com
+              <Mail className="h-4 w-4 text-primary" /> webnivo.dev@gmail.com
             </a>
             <p className="flex items-center gap-2.5 text-sm text-secondary-foreground/60">
               <MapPin className="h-4 w-4 text-primary" /> Kochi, Keralam, India
@@ -58,7 +58,7 @@ const Footer = () => (
         <div>
           <h3 className="font-bold text-sm mb-4">Contact</h3>
           <ul className="space-y-3 text-sm text-secondary-foreground/60">
-            <li>hello@webcraft-agency.com</li>
+            <li>webnivo.dev@gmail.com</li>
             <li>+919074056849</li>
             <li>Kochi, Keralam, India</li>
           </ul>

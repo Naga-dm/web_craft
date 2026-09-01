@@ -131,7 +131,7 @@ const ContactSection = () => {
                 {[
                   { icon: MapPin, label: "Kochi, Keralam, India" },
                   { icon: Phone, label: "+919074056849" },
-                  { icon: Mail, label: "webcraft@gmail.com" },
+                  { icon: Mail, label: "webnivo.dev@gmail.com" },
                 ].map((info) => (
                   <div key={info.label} className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-secondary-foreground/10 flex items-center justify-center">
@@ -150,7 +150,7 @@ const ContactSection = () => {
                 </a>
               </Button>
               <Button asChild className="flex-1 rounded-lg border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10">
-                <a href="mailto:hello@webcraft-agency.com">
+                <a href="mailto:webnivo.dev@gmail.com">
                   <Mail className="mr-2 h-4 w-4" /> Email
                 </a>
               </Button>
